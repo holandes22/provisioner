@@ -76,7 +76,7 @@ class BaseProvisioner(object):
             call(['npm', 'install', '-g', package])
 
     def run_scripts(self):
-        module = importlib.import_module('provision.{}.scripts'.format(distro))
+        module = importlib.import_module('provision.{}.scripts'.format(get_distro()))
         scripts = self.config.get('scripts')
         for script in scripts:
             logger.info('Running script {}'.format(script))
