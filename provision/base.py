@@ -19,15 +19,15 @@ class BaseProvisioner(object):
         with open(self.get_config_path()) as f:
             self.config = yaml.load(f)
 
-    def prev_steps():
+    def pre_steps(self):
         pass
 
-    def post_steps():
+    def post_steps(self):
         pass
 
     def install(self):
         try:
-            self.prev_steps()
+            self.pre_steps()
             self.mkdirs_in_home_folder()
             self.install_distro_packages()
             self.install_user_packages()

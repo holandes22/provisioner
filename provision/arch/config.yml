@@ -1,5 +1,5 @@
 user: pablo
-group: pablo
+group: users
 home: /home/pablo
 home_folders:
     - virtualenvs
@@ -13,7 +13,6 @@ distro_packages:
     - python-pip
     - ruby
     - openssh
-    - lib-nfs
     - nfs-utils
     - libevent
     - mercurial

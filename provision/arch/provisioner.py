@@ -15,13 +15,8 @@ class ArchProvisioner(BaseProvisioner):
         self.install_yaourt()
 
     def install_yaourt(self):
-        with open('/etc/pacman.conf') as f:
-            f.write('''\n
-                [archlinuxfr]
-                SigLevel = Never
-                Server = http://repo.archlinux.fr/$arch
-                \n'''
-            )
+        with open('/etc/pacman.conf', 'a') as f:
+            f.write('''\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch''')
         # Sync and install
         call(['pacman', '-Sy', '--noconfirm', 'yaourt'])
 
@@ -38,4 +33,4 @@ class ArchProvisioner(BaseProvisioner):
         logger.info('Installing AURs')
         packages = self.config.get('user_packages')
         call(['pacman', '-Sy', '--noconfirm'])
-        call(['yaour', '--noconfirm', '-S'] + packages])
+        call(['yaour', '--noconfirm', '-S'] + packages.keys())
