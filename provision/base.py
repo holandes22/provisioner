@@ -3,11 +3,11 @@ import pwd
 import grp
 import logging
 import importlib
-
-import yaml
 from subprocess import call
 
-from tools import get_distro
+import yaml
+
+from provision.tools import get_distro
 
 
 logger = logging.getLogger(__name__)

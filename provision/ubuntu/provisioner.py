@@ -1,7 +1,7 @@
 import logging
 from subprocess import call
 
-from ..base import BaseProvisioner
+from provision.base import BaseProvisioner
 
 
 logger = logging.getLogger(__name__)

@@ -3,7 +3,7 @@ import argparse
 import logging
 from subprocess import call, CalledProcessError
 
-from ..tools import tempdir, create_symlink, cd, run
+from provision.tools import tempdir, create_symlink, cd, run
 
 
 logger = logging.getLogger(__name__)

@@ -3,13 +3,15 @@ import sys
 import logging
 import importlib
 
-from tools import get_distro
+from provision.tools import get_distro
 
 log_filename = os.path.join('/', 'var', 'log', 'newinstall-script.log')
 logging.basicConfig(filename=log_filename, level=logging.DEBUG)
 
 
 if __name__ == "__main__":
+    package = os.path.dirname(__file__)
+    sys.path.insert(0, package)
     distro = get_distro()
     module = importlib.import_module('.', distro, 'provisioner')
     cls = getattr(module, '{}Provisioner'.format(distro.capitalize()))
