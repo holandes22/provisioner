@@ -75,11 +75,12 @@ class BaseProvisioner(object):
     def install_python_packages(self):
         logger.info('Installing pip and virtualenv')
         # requires to be run after distro packages
-        call(['pip-2.7', 'install', '--upgrade', 'pip'])
-        call(['pip-2.7', 'install', '--upgrade', 'virtualenv'])
+        pip = 'pip' if get_distro() == 'ubuntu' else 'pip-2.7'
+        call([pip, 'install', '--upgrade', 'pip'])
+        call([pip, 'install', '--upgrade', 'virtualenv'])
         packages = self.config.get('python_packages')
         logger.info('Installing python packages: {}'.format(packages))
-        call(['pip-2.7', 'install'] + packages)
+        call([pip, 'install'] + packages)
 
     def install_ruby_gems(self):
         gems = self.config.get('ruby_gems')

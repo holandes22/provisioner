@@ -5,7 +5,7 @@ distro_packages:
     - base-devel
     - git
     - nodejs
-    - python-pip
+    - python2-pip
     - ruby
     - openssh
     - nfs-utils
