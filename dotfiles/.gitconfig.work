@@ -1,5 +1,5 @@
 [include]
-    path = ~/dotfiles/gitconfig.base
+    path = ~/provisioner/dotfiles/gitconfig.base
 
 [user]
     name = Pablo Klijnjan
