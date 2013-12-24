@@ -19,14 +19,24 @@ class BaseProvisioner(object):
         with open(self.get_config_path()) as f:
             self.config = yaml.load(f)
 
+    def prev_steps():
+        pass
+
+    def post_steps():
+        pass
+
     def install(self):
-        self.mkdirs_in_home_folder()
-        self.install_distro_packages()
-        self.install_user_packages()
-        self.install_python_packages()
-        self.install_ruby_gems()
-        self.install_node_packages()
-        self.run_scripts()
+        try:
+            self.prev_steps()
+            self.mkdirs_in_home_folder()
+            self.install_distro_packages()
+            self.install_user_packages()
+            self.install_python_packages()
+            self.install_ruby_gems()
+            self.install_node_packages()
+            self.run_scripts()
+        finally:
+            self.post_steps()
 
     def get_config_path(self):
         base = os.path.dirname(__file__)
