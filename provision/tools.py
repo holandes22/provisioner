@@ -21,7 +21,10 @@ def run(cmd, shell=False):
 
 
 def get_distro():
-    return platform.linux_distribution()[0].lower()
+    distro = platform.linux_distribution()[0].lower()
+    if distro == '':
+        distro = 'arch'
+    return distro
 
 
 def is_root():

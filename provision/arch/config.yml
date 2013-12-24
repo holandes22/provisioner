@@ -1,0 +1,40 @@
+user: pablo
+group: pablo
+home: /home/pablo
+home_folders:
+    - virtualenvs
+    - projects
+scripts:
+    - install_vim
+distro_packages:
+    - base-devel
+    - git
+    - nodejs
+    - python-pip
+    - ruby
+    - openssh
+    - lib-nfs
+    - nfs-utils
+    - libevent
+    - mercurial
+    - curl
+    - tmux
+user_packages:
+    heroku-toolbelt: ''
+    google-chrome: ''
+python_packages:
+    - vim-bridge
+    - flake8
+    - pyflakes
+    - pylint
+    - ipython
+    - gitflow
+    - virtualenvwrapper
+ruby_gems:
+    - puppet
+    - librarian-puppet
+    - tmuxinator
+node_packages:
+    - jshint
+    - grunt-cli
+    - bower

@@ -1,3 +1,8 @@
 WORK=$1
-sudo python provision/install.py
-python create_symlinks.py $WORK
+python=python
+if [ -e "/etc/arch-release" ]
+then
+    python=python2.7
+fi
+sudo $python provision/install.py
+$python create_symlinks.py $WORK
