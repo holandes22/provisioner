@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class BaseProvisioner(object):
 
     def __init__(self):
-        with open('base_config.yml') as f:
+        with open(self.get_base_config_path()) as f:
             self.config = yaml.load(f)
 
         # Include distro specific
@@ -42,9 +42,13 @@ class BaseProvisioner(object):
         finally:
             self.post_steps()
 
+
+    def get_base_config_path(self):
+        base = os.path.dirname(__file__)
+        return os.path.join(base, 'base_config.yml')
+
     def get_config_path(self):
         base = os.path.dirname(__file__)
-        print os.path.join(base, get_distro(), 'config.yml')
         return os.path.join(base, get_distro(), 'config.yml')
 
     def mkdirs_in_home_folder(self):
