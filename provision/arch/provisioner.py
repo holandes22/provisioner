@@ -33,4 +33,4 @@ class ArchProvisioner(BaseProvisioner):
         logger.info('Installing AURs')
         packages = self.config.get('user_packages')
         call(['pacman', '-Sy', '--noconfirm'])
-        call(['yaour', '--noconfirm', '-S'] + packages.keys())
+        call(['yaourt', '--noconfirm', '-S'] + packages.keys())
