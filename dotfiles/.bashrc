@@ -58,7 +58,6 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\033[01;34m\]\h\[\033[00m\]:\w$(__git_ps1 "\[\e[32m\][%s]\[\e[0m\]")$ '
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -132,12 +131,29 @@ do
     source $COMPLETION_FOLDER/$COMPLETION_SCRIPT.bash
 done
 
+if [ -f ~/.git-prompt.sh ]
+then
+    source ~/.git-prompt.sh
+fi
+
 # tmux completion
-source /usr/share/doc/tmux/examples/bash_completion_tmux.sh
+if [ -e "/etc/arch-release" ]
+then
+    source /usr/share/bash-completion/completions/tmux
+else
+    source /usr/share/doc/tmux/examples/bash_completion_tmux.sh
+fi
+
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+if [ -e "/etc/arch-release" ]
+then
+    source /usr/bin/virtualenvwrapper.sh
+else
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 # System
 # ======
@@ -147,6 +163,7 @@ alias ..='cd .. '
 # ===========
 
 export PATH=$PATH:/opt/vagrant/bin:$HOME/xpyv/bin
+PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 
 # Dev work
 # =========
