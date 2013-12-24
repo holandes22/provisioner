@@ -1,0 +1,33 @@
+[color]
+    ui = true
+
+[core]
+    editor = vim
+    excludesfile = /home/pablo/.gitignore_global
+
+[color "status"]
+    added = green
+    changed = red
+    untracked = cyan
+
+[color "branch"]
+    current = cyan 
+    local = yellow
+    remote = green
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[help]
+    autocorrect = 10
+
+[alias]
+    lg = log --oneline --graph --decorate --abbrev-commit
+    d = diff --ignore-space-at-eol
+    s = status
+    l = log --decorate
+    pr = pull --rebase
+    co = checkout

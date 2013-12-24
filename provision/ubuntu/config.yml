@@ -1,0 +1,48 @@
+user: pablo
+group: pablo
+home: /home/pablo
+home_folders:
+    - virtualenvs
+    - projects
+scripts:
+    - set_locale
+    - install_heroku_toolbelt
+    - install_chrome
+    - install_vim
+    - install_virtualbox
+distro_packages:
+    - python-pip
+    - python-dev
+    - ruby
+    - ruby-dev
+    - rubygems
+    - xclip
+    - cifs-utils
+    - openssh-server
+    - nfs-kerner-server
+    - nfs-common
+    - libpq-dev
+    - libevent-dev
+    - libncurses5-dev
+    - mercurial
+    - curl
+user_packages:
+    git: 'ppa:pi-rho/dev'
+    nodejs: 'ppa:chris-lea/node.js'
+    tmux: 'ppa:pi-rho/dev'
+python_packages:
+    - vim-bridge
+    - flake8
+    - pyflakes
+    - pylint
+    - ipython
+    - gitflow
+    - virtualenvwrapper
+ruby_gems:
+    - puppet
+    - librarian-puppet
+    - tmuxinator
+node_packages:
+    - jshint
+    - grunt-cli
+    - bower

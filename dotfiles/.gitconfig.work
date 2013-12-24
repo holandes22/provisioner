@@ -1,0 +1,6 @@
+[include]
+    path = ~/dotfiles/gitconfig.base
+
+[user]
+    name = Pablo Klijnjan
+    email = pablokl@il.ibm.com

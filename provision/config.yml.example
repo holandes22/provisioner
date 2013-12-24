@@ -1,0 +1,27 @@
+user: pablo
+group: pablo
+home: /home/pablo
+home_folders:
+    - virtualenvs
+    - projects
+scripts:
+    - install_vim
+    - install_chrome
+    - install_virtualbox
+distro_packages:
+    - mercurial
+    - curl
+user_packages:
+    git: 'ppa:pi-rho/dev'
+    nodejs: 'ppa:chris-lea/node.js'
+python_packages:
+    - vim-bridge
+    - flake8
+ruby_gems:
+    - puppet
+    - librarian-puppet
+    - tmuxinator
+node_packages:
+    - jshint
+    - grunt-cli
+    - bower
