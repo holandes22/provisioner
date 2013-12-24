@@ -24,5 +24,5 @@ class UbuntuProvisioner(BaseProvisioner):
         for ppa in packages.values():
             call(['add-apt-repository', '--yes', ppa])
         call(['apt-get', 'update'])
-        for package in packages():
+        for package in packages:
             call(['apt-get', 'install', '--yes', package])

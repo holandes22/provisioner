@@ -30,10 +30,11 @@ class BaseProvisioner(object):
 
     def get_config_path(self):
         base = os.path.dirname(__file__)
-        return os.path.join(base, get_distro, 'config.yml')
+        print os.path.join(base, get_distro(), 'config.yml')
+        return os.path.join(base, get_distro(), 'config.yml')
 
     def mkdirs_in_home_folder(self):
-        home_folder = self.config.get('home_folder')
+        home_folder = self.config.get('home')
         directories = self.config.get('home_folders')
 
         for directory in directories:
@@ -75,7 +76,7 @@ class BaseProvisioner(object):
             call(['npm', 'install', '-g', package])
 
     def run_scripts(self):
-        module = importlib.import_module('.', distro, 'scripts')
+        module = importlib.import_module('provision.{}.scripts'.format(distro))
         scripts = self.config.get('scripts')
         for script in scripts:
             logger.info('Running script {}'.format(script))

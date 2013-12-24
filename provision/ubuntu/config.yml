@@ -19,7 +19,7 @@ distro_packages:
     - xclip
     - cifs-utils
     - openssh-server
-    - nfs-kerner-server
+    - nfs-kernel-server
     - nfs-common
     - libpq-dev
     - libevent-dev
