@@ -1,7 +1,12 @@
 import os
-import argparse
+import sys
 import logging
+import argparse
 from subprocess import call, CalledProcessError
+
+here = lambda * x: os.path.join(os.path.abspath(os.path.dirname(__file__)), *x)
+package = here('..', '..')
+sys.path.insert(0, package)
 
 from provision.tools import tempdir, create_symlink, cd, run
 
