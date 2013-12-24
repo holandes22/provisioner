@@ -1,9 +1,7 @@
 import logging
-import tarfile
 from subprocess import call
 
 from provision.base import BaseProvisioner
-from provision.tools import tempdir
 
 
 logger = logging.getLogger(__name__)
@@ -13,6 +11,9 @@ class ArchProvisioner(BaseProvisioner):
 
     def pre_steps(self):
         self.install_yaourt()
+
+    def post_steps(self):
+        call(['systemctl', 'enable', 'sshd.service'])
 
     def install_yaourt(self):
         with open('/etc/pacman.conf', 'a') as f:
