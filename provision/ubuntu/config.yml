@@ -7,9 +7,7 @@ home_folders:
 scripts:
     - set_locale
     - install_heroku_toolbelt
-    - install_chrome
     - install_vim
-    - install_virtualbox
 distro_packages:
     - python-pip
     - python-dev
