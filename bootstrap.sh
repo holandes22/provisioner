@@ -7,6 +7,7 @@ TGT_SSH_DIR=$HOME/.ssh
 WORK=$2
 mkdir $TGT_SSH_DIR
 cp $SRC_SSH_DIR/* $TGT_SSH_DIR
+chmod 400 $TGT_SSH_DIR/*
 sudo add-apt-repository --yes ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install --yes git python-yaml
