@@ -8,9 +8,16 @@ WORK=$2
 mkdir $TGT_SSH_DIR
 cp $SRC_SSH_DIR/* $TGT_SSH_DIR
 chmod 400 $TGT_SSH_DIR/*
-sudo add-apt-repository --yes ppa:git-core/ppa
-sudo apt-get update
-sudo apt-get install --yes git python-yaml
+
+if [ -e "/etc/arch-release" ]
+then
+    sudo pacman -Sy git python-yaml
+else
+    sudo add-apt-repository --yes ppa:git-core/ppa
+    sudo apt-get update
+    sudo apt-get install --yes git python-yaml
+fi
+
 cd $HOME
 git clone git@github.com:holandes22/provisioner
 cd $HOME/provisioner
