@@ -16,8 +16,12 @@ logger = logging.getLogger(__name__)
 class BaseProvisioner(object):
 
     def __init__(self):
-        with open(self.get_config_path()) as f:
+        with open('base_config.yml') as f:
             self.config = yaml.load(f)
+
+        # Include distro specific
+        with open(self.get_config_path()) as f:
+            self.config.update(yaml.load(f))
 
     def pre_steps(self):
         pass

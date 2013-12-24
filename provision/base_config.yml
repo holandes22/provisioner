@@ -1,0 +1,21 @@
+user: pablo
+home: /home/pablo
+home_folders:
+    - virtualenvs
+    - projects
+python_packages:
+    - vim-bridge
+    - flake8
+    - pyflakes
+    - pylint
+    - ipython
+    - gitflow
+    - virtualenvwrapper
+ruby_gems:
+    - puppet
+    - librarian-puppet
+    - tmuxinator
+node_packages:
+    - jshint
+    - grunt-cli
+    - bower

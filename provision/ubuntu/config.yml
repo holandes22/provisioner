@@ -1,9 +1,4 @@
-user: pablo
 group: pablo
-home: /home/pablo
-home_folders:
-    - virtualenvs
-    - projects
 scripts:
     - set_locale
     - install_heroku_toolbelt
@@ -28,19 +23,3 @@ user_packages:
     git: 'ppa:pi-rho/dev'
     nodejs: 'ppa:chris-lea/node.js'
     tmux: 'ppa:pi-rho/dev'
-python_packages:
-    - vim-bridge
-    - flake8
-    - pyflakes
-    - pylint
-    - ipython
-    - gitflow
-    - virtualenvwrapper
-ruby_gems:
-    - puppet
-    - librarian-puppet
-    - tmuxinator
-node_packages:
-    - jshint
-    - grunt-cli
-    - bower
