@@ -131,9 +131,9 @@ do
     source $COMPLETION_FOLDER/$COMPLETION_SCRIPT.bash
 done
 
-if [ -f ~/.git-prompt.sh ]
+if [ -e "/etc/arch-release" ]
 then
-    source ~/.git-prompt.sh
+    source /usr/share/git/completion/git-prompt.sh
 fi
 
 # tmux completion
