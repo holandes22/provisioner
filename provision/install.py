@@ -6,7 +6,7 @@ import importlib
 package = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, package)
 
-from provision.tools import get_distro
+from provision.tools import get_distro, is_root
 
 log_filename = os.path.join('/', 'var', 'log', 'newinstall-script.log')
 logging.basicConfig(filename=log_filename, level=logging.DEBUG)
@@ -19,6 +19,7 @@ if __name__ == "__main__":
 
     try:
         logging.info("Starting script".center(30, '='))
+        is_root()
         provisioner = cls()
         provisioner.install()
         sys.exit(0)
