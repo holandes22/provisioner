@@ -32,6 +32,17 @@ def setuid(user):
     os.seteuid(original_uid)
 
 
+class as_user(object):
+
+    def __init__(self, user):
+        self.user = user
+
+    def __call__(self, func):
+        def wrapper(*args, **kwargs):
+            with setuid(self.user):
+                return func(*args, **kwargs)
+        return wrapper
+
 def get_distro():
     distro = platform.linux_distribution()[0].lower()
     if distro == '':
