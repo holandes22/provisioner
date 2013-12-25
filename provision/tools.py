@@ -1,5 +1,6 @@
 import os
 import sys
+import pwd
 import shutil
 import logging
 import tempfile
@@ -18,6 +19,17 @@ def run(cmd, shell=False):
         cmd_str = ' '.join(cmd) if isinstance(cmd, list) else cmd
         print 'Got error {} while running command {}'.format(e.output, cmd_str)
         raise
+
+
+@contextmanager
+def setuid(user):
+    original_uid = os.geteuid()
+    new_uid = pwd.getpwnam(user).pw_uid
+    logger.info('Running process with uid {}'.format(new_uid))
+    os.seteuid(new_uid)
+    yield
+    logger.info('Setting back uid to {}'.format(original_uid))
+    os.seteuid(original_uid)
 
 
 def get_distro():

@@ -1,6 +1,7 @@
 import logging
 from subprocess import call
 
+from provision.tools import setuid
 from provision.base import BaseProvisioner
 
 
@@ -35,3 +36,10 @@ class ArchProvisioner(BaseProvisioner):
         packages = self.config.get('user_packages')
         call(['pacman', '-Sy', '--noconfirm'])
         call(['yaourt', '--noconfirm', '-S'] + packages.keys())
+
+    def install_ruby_gems(self):
+        gems = self.config.get('ruby_gems')
+        logger.info('Installing gems {}'.format(gems))
+        with setuid(self.config.get('user')):
+            for gem in gems:
+                call(['gem', 'install', gem])

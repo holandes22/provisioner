@@ -42,7 +42,6 @@ class BaseProvisioner(object):
         finally:
             self.post_steps()
 
-
     def get_base_config_path(self):
         base = os.path.dirname(__file__)
         return os.path.join(base, 'base_config.yml')
