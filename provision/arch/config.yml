@@ -10,6 +10,7 @@ distro_packages:
     - openssh
     - nfs-utils
     - libevent
+    - postgresql-libs
     - mercurial
     - curl
     - tmux
