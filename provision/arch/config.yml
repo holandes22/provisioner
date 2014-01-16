@@ -16,3 +16,4 @@ distro_packages:
 user_packages:
     heroku-toolbelt: ''
     google-chrome: ''
+    vagrant: ''
