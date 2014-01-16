@@ -79,24 +79,25 @@ class BaseProvisioner(object):
         call([pip, 'install', '--upgrade', 'pip'])
         call([pip, 'install', '--upgrade', 'virtualenv'])
         packages = self.config.get('python_packages')
-        logger.info('Installing python packages: {}'.format(packages))
-        call([pip, 'install'] + packages)
+        if packages:
+            logger.info('Installing python packages: {}'.format(packages))
+            call([pip, 'install'] + packages)
 
     def install_ruby_gems(self):
-        gems = self.config.get('ruby_gems')
+        gems = self.config.get('ruby_gems', [])
         logger.info('Installing gems {}'.format(gems))
         for gem in gems:
             call(['gem', 'install', '--no-user-install', gem])
 
     def install_node_packages(self):
-        packages = self.config.get('node_packages')
+        packages = self.config.get('node_packages', [])
         logger.info('Installing node packages {}'.format(packages))
         for package in packages:
             call(['npm', 'install', '-g', package])
 
     def run_scripts(self):
         module = importlib.import_module('provision.{}.scripts'.format(get_distro()))
-        scripts = self.config.get('scripts')
+        scripts = self.config.get('scripts', [])
         for script in scripts:
             logger.info('Running script {}'.format(script))
             func = getattr(module, script)
