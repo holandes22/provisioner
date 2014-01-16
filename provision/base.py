@@ -74,7 +74,8 @@ class BaseProvisioner(object):
     def install_python_packages(self):
         logger.info('Installing pip and virtualenv')
         # requires to be run after distro packages
-        pip = 'pip' if get_distro() == 'ubuntu' else 'pip-2.7'
+        pip = 'pip' if get_distro() == 'ubuntu' else 'pip2.7'
+        logger.info('Using pip: {}'.format(pip))
         call([pip, 'install', '--upgrade', 'pip'])
         call([pip, 'install', '--upgrade', 'virtualenv'])
         packages = self.config.get('python_packages')
