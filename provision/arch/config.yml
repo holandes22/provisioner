@@ -1,6 +1,4 @@
 group: users
-scripts:
-    - install_vim
 distro_packages:
     - base-devel
     - git
@@ -14,6 +12,7 @@ distro_packages:
     - mercurial
     - curl
     - tmux
+    - gvim
 user_packages:
     heroku-toolbelt: ''
     google-chrome: ''
