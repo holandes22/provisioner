@@ -11,7 +11,7 @@ chmod 400 $TGT_SSH_DIR/*
 
 if [ -e "/etc/arch-release" ]
 then
-    sudo pacman -Sy --noconfirm git python2-yaml
+    sudo pacman -Sy --noconfirm git python2-yaml openssh
 else
     sudo add-apt-repository --yes ppa:git-core/ppa
     sudo apt-get update
