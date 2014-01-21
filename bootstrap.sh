@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # Give an SSH dir path where the RSA keys are stored
+# For example: sh bootstrap.sh ssh --distro=antergos --work
 set -e
 SRC_SSH_DIR=$1
 TGT_SSH_DIR=$HOME/.ssh
