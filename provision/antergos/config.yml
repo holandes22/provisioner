@@ -1,0 +1,19 @@
+group: users
+distro_packages:
+    - base-devel
+    - git
+    - nodejs
+    - python2-pip
+    - ruby
+    - openssh
+    - nfs-utils
+    - libevent
+    - postgresql-libs
+    - mercurial
+    - curl
+    - tmux
+    - gvim
+user_packages:
+    heroku-toolbelt: ''
+    google-chrome: ''
+    vagrant: ''
