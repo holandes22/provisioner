@@ -46,7 +46,10 @@ class as_user(object):
 def get_distro():
     distro = platform.linux_distribution()[0].lower()
     if distro == '':
-        distro = 'arch'
+        if os.path.exists('/usr/share/antergos'):  #flaky, but have no other way
+            distro = 'antergos'
+        else:
+            distro = 'arch'
     return distro
 
 
