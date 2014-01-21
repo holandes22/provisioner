@@ -1,12 +1,11 @@
 #!/bin/sh
 
 # Give an SSH dir path where the RSA keys are stored
-# For example: sh bootstrap.sh ssh --distro=antergos --work
+# For example: sh bootstrap.sh ssh --work
 set -e
 SRC_SSH_DIR=$1
 TGT_SSH_DIR=$HOME/.ssh
-DISTRO=$2
-WORK=$3
+WORK=$2
 
 mkdir $TGT_SSH_DIR
 cp $SRC_SSH_DIR/* $TGT_SSH_DIR
@@ -24,4 +23,4 @@ fi
 cd $HOME
 git clone git@github.com:holandes22/provisioner
 cd $HOME/provisioner
-sh newinstall.sh $DISTRO $WORK
+sh newinstall.sh $WORK

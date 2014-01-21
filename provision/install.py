@@ -10,7 +10,6 @@ sys.path.insert(0, package)
 from provision.tools import get_distro, is_root
 
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         prog='install.py',
@@ -41,7 +40,9 @@ if __name__ == "__main__":
     try:
         log_filename = os.path.join('/', 'var', 'log', 'newinstall-script.log')
         logging.basicConfig(filename=log_filename, level=logging.DEBUG)
-        logging.info("Starting script".center(30, '='))
+        logging.info(
+            'Starting script for distro {}'.format(distro).center(30, '=')
+        )
         is_root()
         provisioner = cls(**provisioner_kwargs)
         provisioner.install()
