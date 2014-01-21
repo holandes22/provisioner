@@ -22,7 +22,6 @@ if __name__ == "__main__":
         help='Determine which actions to run, default=all. Comma separated.'
     )
     parser.add_argument(
-        '-d',
         '--distro',
         default=None,
         help='Specify distro (by default it tries alone to do so).'
@@ -37,7 +36,7 @@ if __name__ == "__main__":
     module = importlib.import_module('provision.{}.provisioner'.format(distro))
     cls = getattr(module, '{}Provisioner'.format(distro.capitalize()))
 
-    provisioner_kwargs = {'distro': distro, 'actions': args.actions}
+    provisioner_kwargs = {'distro': distro, 'actions': args.actions.split(',')}
 
     try:
         log_filename = os.path.join('/', 'var', 'log', 'newinstall-script.log')
