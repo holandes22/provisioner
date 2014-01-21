@@ -5,6 +5,8 @@ set -e
 SRC_SSH_DIR=$1
 TGT_SSH_DIR=$HOME/.ssh
 WORK=$2
+DISTRO=$3
+ACTIONS=$4
 mkdir $TGT_SSH_DIR
 cp $SRC_SSH_DIR/* $TGT_SSH_DIR
 chmod 400 $TGT_SSH_DIR/*
@@ -21,4 +23,4 @@ fi
 cd $HOME
 git clone git@github.com:holandes22/provisioner
 cd $HOME/provisioner
-sh newinstall.sh $WORK
+sh newinstall.sh $WORK $DISTRO $ACTIONS
