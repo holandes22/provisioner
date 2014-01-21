@@ -15,9 +15,28 @@ logger = logging.getLogger(__name__)
 
 class BaseProvisioner(object):
 
-    def __init__(self):
+    def __init__(self, distro=None, actions='all'):
         with open(self.get_base_config_path()) as f:
             self.config = yaml.load(f)
+
+        if actions == 'all':
+            self.actions = [
+                'pre_steps',
+                'mkdirs_in_home_folder',
+                'install_distro_packages',
+                'install_user_packages',
+                'install_python_packages',
+                'install_ruby_gems',
+                'install_node_packages',
+                'run_scripts',
+                'post_steps',
+            ]
+        else:
+            self.actions = actions
+        if not distro:
+            self.distro = get_distro()
+        else:
+            self.distro = distro
 
         # Include distro specific
         with open(self.get_config_path()) as f:
@@ -30,25 +49,16 @@ class BaseProvisioner(object):
         pass
 
     def install(self):
-        try:
-            self.pre_steps()
-            self.mkdirs_in_home_folder()
-            self.install_distro_packages()
-            self.install_user_packages()
-            self.install_python_packages()
-            self.install_ruby_gems()
-            self.install_node_packages()
-            self.run_scripts()
-        finally:
-            self.post_steps()
+        for action in self.actions:
+            getattr(self, action)()
 
     def get_base_config_path(self):
         base = os.path.dirname(__file__)
         return os.path.join(base, 'base_config.yml')
 
-    def get_config_path(self):
+    def get_config_path(self, distro=None):
         base = os.path.dirname(__file__)
-        return os.path.join(base, get_distro(), 'config.yml')
+        return os.path.join(base, self.distro, 'config.yml')
 
     def mkdirs_in_home_folder(self):
         home_folder = self.config.get('home')
@@ -74,7 +84,7 @@ class BaseProvisioner(object):
     def install_python_packages(self):
         logger.info('Installing pip and virtualenv')
         # requires to be run after distro packages
-        pip = 'pip' if get_distro() == 'ubuntu' else 'pip2.7'
+        pip = 'pip' if self.distro == 'ubuntu' else 'pip2.7'
         logger.info('Using pip: {}'.format(pip))
         call([pip, 'install', '--upgrade', 'pip'])
         call([pip, 'install', '--upgrade', 'virtualenv'])
@@ -96,10 +106,11 @@ class BaseProvisioner(object):
             call(['npm', 'install', '-g', package])
 
     def run_scripts(self):
-        module = importlib.import_module('provision.{}.scripts'.format(get_distro()))
+        module = importlib.import_module(
+            'provision.{}.scripts'.format(self.distro)
+        )
         scripts = self.config.get('scripts', [])
         for script in scripts:
             logger.info('Running script {}'.format(script))
             func = getattr(module, script)
             func()
-
