@@ -1,13 +1,15 @@
 import logging
 from subprocess import call
 
-from provision.base import BaseProvisioner
+from provision.base import Provisioner
 
 
 logger = logging.getLogger(__name__)
 
 
-class ArchProvisioner(BaseProvisioner):
+class ArchProvisioner(Provisioner):
+
+    pip = 'pip2.7'
 
     def pre_steps(self):
         self.install_yaourt()

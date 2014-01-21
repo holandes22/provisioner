@@ -13,9 +13,21 @@ from provision.tools import get_distro
 logger = logging.getLogger(__name__)
 
 
-class BaseProvisioner(object):
+class Provisioner(object):
 
-    def __init__(self, distro=None, actions='all'):
+    pip = 'pip'
+
+    def __new__(cls, actions='all'):
+        distro = get_distro()
+        module = importlib.import_module(
+            'provision.{}.provisioner'.format(distro)
+        )
+        cls_type = getattr(module, '{}Provisioner'.format(distro.capitalize()))
+        instance = super(Provisioner, cls).__new__(cls_type)
+        instance.distro = distro
+        return instance
+
+    def __init__(self, actions='all'):
         with open(self.get_base_config_path()) as f:
             self.config = yaml.load(f)
 
@@ -33,10 +45,6 @@ class BaseProvisioner(object):
             ]
         else:
             self.actions = actions
-        if not distro:
-            self.distro = get_distro()
-        else:
-            self.distro = distro
 
         # Include distro specific
         with open(self.get_config_path()) as f:
@@ -84,14 +92,13 @@ class BaseProvisioner(object):
     def install_python_packages(self):
         logger.info('Installing pip and virtualenv')
         # requires to be run after distro packages
-        pip = 'pip' if self.distro == 'ubuntu' else 'pip2.7'
-        logger.info('Using pip: {}'.format(pip))
-        call([pip, 'install', '--upgrade', 'pip'])
-        call([pip, 'install', '--upgrade', 'virtualenv'])
+        logger.info('Using pip: {}'.format(self.pip))
+        call([self.pip, 'install', '--upgrade', 'pip'])
+        call([self.pip, 'install', '--upgrade', 'virtualenv'])
         packages = self.config.get('python_packages')
         if packages:
             logger.info('Installing python packages: {}'.format(packages))
-            call([pip, 'install'] + packages)
+            call([self.pip, 'install'] + packages)
 
     def install_ruby_gems(self):
         gems = self.config.get('ruby_gems', [])

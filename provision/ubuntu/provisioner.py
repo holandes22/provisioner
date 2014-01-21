@@ -1,13 +1,13 @@
 import logging
 from subprocess import call
 
-from provision.base import BaseProvisioner
+from provision.base import Provisioner
 
 
 logger = logging.getLogger(__name__)
 
 
-class UbuntuProvisioner(BaseProvisioner):
+class UbuntuProvisioner(Provisioner):
 
     def install_distro_packages(self):
         logger.info('Installing Ubuntu Packages')
