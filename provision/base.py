@@ -106,9 +106,14 @@ class BaseProvisioner(object):
             call(['npm', 'install', '-g', package])
 
     def run_scripts(self):
-        module = importlib.import_module(
-            'provision.{}.scripts'.format(self.distro)
-        )
+        try:
+            module = importlib.import_module(
+                'provision.{}.scripts'.format(self.distro)
+            )
+        except ImportError:
+            logger.warning('scripts module is not importable. Skipping step.')
+            return
+
         scripts = self.config.get('scripts', [])
         for script in scripts:
             logger.info('Running script {}'.format(script))
