@@ -19,6 +19,7 @@ DOTFILE_LINKS_AND_NAMES = {
         '.pip/pip.conf': '.pip/pip.conf',
         '.tmux.conf': '.tmux.conf',
         '.tmuxinator': 'tmuxinator',
+        '.fonts.conf': '.fonts.conf'
         }
 
 logging.basicConfig(filename = os.path.join(HOME_FOLDER, 'create_symlinks.log'), level = logging.DEBUG)
