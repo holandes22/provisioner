@@ -1,6 +1,6 @@
 [[ $- != *i* ]] && return
 
-PS1='\[\033[01;32m\]\u@\[\033[01;34m\]\h\[\033[00m\]: \W$(__git_ps1 "\[\e[32m\][%s]\[\e[0m\]")$ '
+PS1='\[\033[01;32m\]\u@\[\033[01;34m\]\h\[\033[00m\]:\w$(__git_ps1 "\[\e[32m\][%s]\[\e[0m\]")$ '
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
