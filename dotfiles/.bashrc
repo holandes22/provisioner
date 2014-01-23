@@ -37,6 +37,7 @@ export TERM=screen-256color
 
 DOTFILES_FOLDER=$HOME/provisioner/dotfiles
 COMPLETION_FOLDER=$DOTFILES_FOLDER/completion
+VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES_FOLDER/virtualenvwrapper_hook_dir
 
 # Completion
 # ==========

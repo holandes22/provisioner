@@ -34,3 +34,6 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+dotfiles/virtualenvwrapper_hook_dir/*
+!dotfiles/virtualenvwrapper_hook_dir/postactivate

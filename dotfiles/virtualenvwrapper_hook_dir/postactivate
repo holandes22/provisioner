@@ -1,0 +1,4 @@
+DIR=~/projects/`basename $VIRTUAL_ENV`
+if [ -d "$DIR" ]; then
+    cd $DIR
+fi
