@@ -37,7 +37,6 @@ export TERM=screen-256color
 
 DOTFILES_FOLDER=$HOME/provisioner/dotfiles
 COMPLETION_FOLDER=$DOTFILES_FOLDER/completion
-VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES_FOLDER/virtualenvwrapper_hook_dir
 
 # Completion
 # ==========
@@ -63,6 +62,7 @@ fi
 
 
 # virtualenvwrapper
+export VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES_FOLDER/virtualenvwrapper_hook_dir
 export WORKON_HOME=$HOME/virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 if [ -e "/etc/arch-release" ]
