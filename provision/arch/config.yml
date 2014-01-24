@@ -13,6 +13,7 @@ distro_packages:
     - curl
     - tmux
     - gvim
+    - net-tools
 user_packages:
     heroku-toolbelt: ''
     google-chrome: ''
