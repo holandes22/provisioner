@@ -31,6 +31,10 @@ class Provisioner(object):
         with open(self.get_base_config_path()) as f:
             self.config = yaml.load(f)
 
+        # Include distro specific
+        with open(self.get_config_path()) as f:
+            self.config.update(yaml.load(f))
+
         if actions == 'all':
             self.actions = [
                 'pre_steps',
@@ -45,10 +49,6 @@ class Provisioner(object):
             ]
         else:
             self.actions = actions
-
-        # Include distro specific
-        with open(self.get_config_path()) as f:
-            self.config.update(yaml.load(f))
 
     def pre_steps(self):
         pass
