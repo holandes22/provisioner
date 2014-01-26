@@ -16,6 +16,7 @@ logger = logging.getLogger(__name__)
 class Provisioner(object):
 
     pip = 'pip'
+    upgrade_pip = True
 
     def __new__(cls, actions='all'):
         distro = get_distro()
@@ -92,7 +93,8 @@ class Provisioner(object):
     def install_python_packages(self):
         logger.info('Installing pip and virtualenv')
         # requires to be run after distro packages
-        logger.info('Using pip: {}'.format(self.pip))
+        if self.upgrade_pip:
+            logger.info('Using pip: {}'.format(self.pip))
         call([self.pip, 'install', '--upgrade', 'pip'])
         call([self.pip, 'install', '--upgrade', 'virtualenv'])
         packages = self.config.get('python_packages')

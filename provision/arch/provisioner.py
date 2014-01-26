@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 class ArchProvisioner(Provisioner):
 
     pip = 'pip2.7'
+    upgrade_pip = False
 
     def pre_steps(self):
         self.install_yaourt()
