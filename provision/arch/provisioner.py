@@ -18,6 +18,10 @@ class ArchProvisioner(Provisioner):
     def post_steps(self):
         call(['systemctl', 'enable', 'sshd.service'])
 
+        #NFS
+        call(['systemctl', 'enable', 'rpc-idmapd.service'])
+        call(['systemctl', 'enable', 'rpc-mountd.service'])
+
     def install_yaourt(self):
         with open('/etc/pacman.conf', 'a') as f:
             f.write('''\n[archlinuxfr]\nSigLevel = Never\nServer = http://repo.archlinux.fr/$arch''')
