@@ -1,0 +1,24 @@
+# ~/.tmuxinator/vvol.yml
+
+name: vvol
+root: ~/xiv-repos/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+    - ISIS: ssh root@9.151.161.62  # pablokl-isis
+    - VASA2: workon vasa2
+    - HSGSVR: workon vasa2 && cd /home/pablo/xiv-repos/hsgsvr
