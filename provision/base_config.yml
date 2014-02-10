@@ -12,8 +12,6 @@ python_packages:
     - gitflow
     - virtualenvwrapper
 ruby_gems:
-    - puppet
-    - librarian-puppet
     - tmuxinator
 node_packages:
     - jshint

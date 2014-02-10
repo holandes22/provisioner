@@ -9,7 +9,6 @@ distro_packages:
     - nfs-utils
     - libevent
     - postgresql-libs
-    - mercurial
     - curl
     - tmux
     - gvim
