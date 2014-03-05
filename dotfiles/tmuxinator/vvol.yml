@@ -19,6 +19,10 @@ root: ~/xiv-repos/
 # tmux_command: byobu
 
 windows:
-    - ISIS: ssh root@9.151.161.62  # pablokl-isis
+    - ISIS-SERVER: ssh root@9.151.161.62  # pablokl-isis
     - VASA2: workon vasa2
+    - VASA2-TESTS: workon vasa2
     - HSGSVR: workon vasa2 && cd /home/pablo/xiv-repos/hsgsvr
+    - XSF: dev-xsf
+    - ISIS: workon vasa2 && cd /home/pablo/xiv-repos/isis
+
