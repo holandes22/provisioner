@@ -42,6 +42,7 @@ set nocompatible " be iMproved
             Bundle 'mattn/zencoding-vim'
             Bundle 'Shutnik/jshint2.vim'
             Bundle 'mustache/vim-mustache-handlebars'
+            Bundle 'groenewege/vim-less'
         " web end
     " Bundles end
 
