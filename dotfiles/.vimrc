@@ -38,8 +38,7 @@ set nocompatible " be iMproved
         " Python end
 
         " web
-            " Bundle 'pangloss/vim-javascript'
-            Bundle 'mattn/zencoding-vim'
+            Bundle 'mattn/emmet-vim'
             Bundle 'Shutnik/jshint2.vim'
             Bundle 'mustache/vim-mustache-handlebars'
             Bundle 'groenewege/vim-less'
@@ -164,9 +163,6 @@ endif
     let g:jedi#popup_on_dot = 0
     let g:jedi#use_tabs_not_buffers = 0
     " let g:jedi#show_call_signatures = 0
-
-    " ZenCoding
-    let g:user_zen_expandabbr_key = '<C-e>'
 
     " Python-sintax
     let python_highlight_all = 1
