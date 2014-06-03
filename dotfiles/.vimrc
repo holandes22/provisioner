@@ -111,7 +111,7 @@ endif
     filetype plugin indent on " load filetype plugins/indent settings
 
     " give more space to active window
-    set winheight=30
+    set winheight=15
     set winminheight=5
     set winwidth=80
 " Vim defaults end
