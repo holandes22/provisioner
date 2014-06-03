@@ -13,7 +13,6 @@ distro_packages:
     - tmux
     - gvim
     - net-tools
+    - vagrant
 user_packages:
-    heroku-toolbelt: ''
     google-chrome: ''
-    vagrant: ''
