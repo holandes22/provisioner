@@ -11,7 +11,7 @@ distro_packages:
     - postgresql-libs
     - curl
     - tmux
-    - gvim
+    - vim
     - net-tools
     - vagrant
 user_packages:
