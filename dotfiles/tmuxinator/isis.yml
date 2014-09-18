@@ -16,9 +16,6 @@ root: ~/xiv-repos/
 # tmux_options: -f ~/.tmux.mac.conf
 
 windows:
-  - SERVER1: ssh pablokl-isis2
-  - SERVER2: ssh pablokl-isis2
-  - VWC: workon vwc
-  - HSGSVR: workon hsgsvr
-  - vasa1: workon vasa1
-
+  - SERVER: ssh pablokl-isis2
+  - isis: workon isis
+  - tests: workon isis
