@@ -158,7 +158,7 @@ endif
     " syntastic
     let g:syntastic_python_checkers = ['flake8', 'pyflakes', 'pylint']
     let g:syntastic_check_on_open = 0
-    let g:syntastic_python_pylint_args='--disable=C0111'
+    let g:syntastic_python_pylint_args='--rcfile=~/.pylintrc'
 
     " jedi-vim
     let g:jedi#popup_on_dot = 0

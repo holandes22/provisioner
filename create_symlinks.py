@@ -19,6 +19,7 @@ DOTFILE_LINKS_AND_NAMES = {
     '.tmux.conf': '.tmux.conf',
     '.tmuxinator': 'tmuxinator',
     '.fonts.conf': '.fonts.conf',
+    '.pylintrc': '.pylintrc',
 }
 
 logging.basicConfig(
