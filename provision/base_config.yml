@@ -5,8 +5,7 @@ home_folders:
     - projects
 python_packages:
     - vim-bridge
-    - flake8
-    - pyflakes
+    - pep8
     - pylint
     - ipython
     - gitflow
