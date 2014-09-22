@@ -23,7 +23,6 @@ set nocompatible " be iMproved
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'scrooloose/syntastic'
-            Bundle 'reinh/vim-makegreen'
             Bundle 'bling/vim-airline'
         " General Vim end
 
@@ -31,15 +30,12 @@ set nocompatible " be iMproved
             Bundle 'https://github.com/tpope/vim-fugitive.git'
 
         " Python
-            " Needed by makegreen to run nose tests
-            Bundle 'olethanh/Vim-nosecompiler'
             Bundle 'davidhalter/jedi-vim'
             Bundle 'hdima/python-syntax'
         " Python end
 
         " web
             Bundle 'mattn/emmet-vim'
-            Bundle 'Shutnik/jshint2.vim'
             Bundle 'mustache/vim-mustache-handlebars'
             Bundle 'groenewege/vim-less'
         " web end
@@ -97,7 +93,7 @@ endif
     " Removing trailing whitespaces.
     autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType html*,hbs,handlebars setlocal ts=2 sw=2 sts=2  "html, htmldjango
+    autocmd FileType html*,hbs,handlebars,jinja*,j2 setlocal ts=2 sw=2 sts=2  "html, htmldjango, jinja
     " Mark trailing whitespace
     set list listchars=trail:_
     highlight SpecialKey ctermfg=DarkGray ctermbg=yellow
@@ -106,6 +102,7 @@ endif
     catch
     endtry
     syntax on
+    syntax enable
     " filetype plugin on
     filetype plugin indent on " load filetype plugins/indent settings
 
@@ -140,9 +137,9 @@ endif
         nmap <Esc>OF <End>
         imap <Esc>OF <End>
     endif
-    syntax enable
+
+    " Solarized
     set background=dark
-    set t_Co=256
     let g:solarized_termcolors=256
     colorscheme solarized
 
@@ -151,14 +148,12 @@ endif
     " let g:ctrlp_working_path_mode = 'c' " Set root to current dir, default is 'ra', looks for .git
     let g:ctrlp_custom_ignore = '\v\.(pyc|swpi|so|exe)$'
 
-    " make green
-    nmap <leader>tt :MakeGreen %<CR>
-    autocmd BufNewFile,BufRead *.py compiler nose
-
     " syntastic
     let g:syntastic_python_checkers = ['pep8', 'pylint']
     let g:syntastic_check_on_open = 0
     let g:syntastic_python_pylint_args='--rcfile=~/.pylintrc'
+
+    let g:syntastic_javascript_checkers = ['jshint']
 
     " jedi-vim
     let g:jedi#popup_on_dot = 0
@@ -167,9 +162,6 @@ endif
 
     " Python-sintax
     let python_highlight_all = 1
-
-    " JSHint
-    au BufWritePost *.js :JSHint
 
     " Handlebars
     let g:mustache_abbreviations = 1
