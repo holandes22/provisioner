@@ -25,12 +25,17 @@ windows:
   - vagrant:
       layout: main-vertical
       panes:
-        - vagrant status
+        - ls
   - vagrant-ssh:
       layout: main-vertical
       panes:
-          - vagrant status
+        - ls
   - frontend:
+      layout: main-vertical
+      panes:
+          - devserver:
+              - cd frontend
+  - frontend-server:
       layout: main-vertical
       panes:
           - devserver:
