@@ -8,7 +8,6 @@ python_packages:
     - pep8
     - pylint
     - ipython
-    - gitflow
     - virtualenvwrapper
 ruby_gems:
     - tmuxinator
