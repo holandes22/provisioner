@@ -7,3 +7,5 @@ distro_packages:
     - libpqxx
     - libevent
     - vim-enhanced
+    - tmux
+    - nodejs
