@@ -11,9 +11,10 @@ mkdir $TGT_SSH_DIR
 cp $SRC_SSH_DIR/* $TGT_SSH_DIR
 chmod 400 $TGT_SSH_DIR/*
 
-if [ -e "/etc/arch-release" ]
-then
+if [ -e "/etc/arch-release" ]; then
     sudo pacman -Sy --noconfirm git python2-yaml openssh
+elif [ -e "/etc/redhat-release" ]; then
+    echo "No need to install deps"
 else
     sudo add-apt-repository --yes ppa:git-core/ppa
     sudo apt-get update
