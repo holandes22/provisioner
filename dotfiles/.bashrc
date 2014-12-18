@@ -50,10 +50,11 @@ do
     source $COMPLETION_FOLDER/$COMPLETION_SCRIPT.bash
 done
 
-if [ -e "/etc/arch-release" ]
-then
+if [ -e "/etc/arch-release" ]; then
     source /usr/share/git/completion/git-completion.bash
     source /usr/share/git/completion/git-prompt.sh
+elif [ -e "/etc/redhat-release" ]; then
+    source /usr/share/git-core/contrib/completion/git-prompt.sh
 fi
 
 # tmux completion
@@ -69,8 +70,7 @@ fi
 export VIRTUALENVWRAPPER_HOOK_DIR=$DOTFILES_FOLDER/virtualenvwrapper_hook_dir
 export WORKON_HOME=$HOME/virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-if [ -e "/etc/arch-release" ]
-then
+if [ \( -e "/etc/arch-release" \) -o \( -e "/etc/redhat-release" \) ]; then
     source /usr/bin/virtualenvwrapper.sh
 else
     source /usr/local/bin/virtualenvwrapper.sh
