@@ -9,3 +9,4 @@ distro_packages:
     - vim-enhanced
     - tmux
     - nodejs
+    - npm
