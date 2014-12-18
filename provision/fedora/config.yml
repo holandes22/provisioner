@@ -1,0 +1,8 @@
+group: pablo
+distro_packages:
+    - python-pip
+    - ruby
+    - rubygems
+    - xclip
+    - libpqxx
+    - libevent
