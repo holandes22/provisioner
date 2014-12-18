@@ -1,4 +1,5 @@
 import logging
+import platform
 from subprocess import call
 
 from provision.base import Provisioner
@@ -26,7 +27,8 @@ class FedoraProvisioner(Provisioner):
         pass
 
     def configure_rpm_fusion(self):
-        cmd = r'''su -c 'yum localinstall --nogpgcheck
-        http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E \%fedora).noarch.rpm
-        http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E \%fedora).noarch.rpm'''
+        version = platform.linux_distribution()[1]
+        link_free = 'http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{}.noarch.rpm'.format(version)
+        link_nonfree = 'http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{}.noarch.rpm'.format(version)
+        cmd = ['yum', 'localinstall', '--nogpgcheck', link_free, link_nonfree]
         call(cmd)

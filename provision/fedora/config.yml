@@ -6,3 +6,4 @@ distro_packages:
     - xclip
     - libpqxx
     - libevent
+    - vim-enhanced
