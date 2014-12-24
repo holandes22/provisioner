@@ -84,12 +84,8 @@ PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 
 # Dev work
 # =========
-XIVREPOS=$HOME/xiv-repos
-XPYV_BIN=$HOME/xpyv/bin
-export XPYVPATH=$XIVREPOS/xsf/deps/pyne
-alias runtests='xpyv $XPYV_BIN/nosetests -a !integration_test,!windows_test,!tau_test '
-alias dev-xsf='export PYTHONPATH=/home/pablo/xiv-repos/xsf:/home/pablo/xiv-repos/xsf/deps/pyne;source ~/virtualenvs/xsf/bin/activate; cd ~/xiv-repos/xsf'
-alias dev-hak='export PYTHONPATH=$XIVREPOS/hak/lib:$XIVREPOS/hak/deps/xiv_xsf:$XIVREPOS/hak/deps/pyne:$XIVREPOS/hak/deps/xhop;source /home/pablo/virtualenvs/hak/bin/activate; cd $XIVREPOS/hak'
+XIVREPOS=$HOME/projects
+alias dev-xsf='export PYTHONPATH=/home/pablo/$XIVREPOS/xsf:/home/pablo/$XIVREPOS/xsf/deps/pyne;source ~/virtualenvs/xsf/bin/activate; cd ~/$XIVREPOS/xsf'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
