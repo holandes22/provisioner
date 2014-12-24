@@ -12,3 +12,6 @@ distro_packages:
     - npm
     - python-devel
     - python-postgresql
+    - dkms
+    - nfs-utils
+    - system-config-nfs
