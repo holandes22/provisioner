@@ -1,7 +1,7 @@
 # ~/.tmuxinator/isis.yml
 
 name: isis
-root: ~/xiv-repos/
+root: ~/projects/isis
 
 # Optional tmux socket
 # socket_name: foo
@@ -15,7 +15,11 @@ root: ~/xiv-repos/
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
 
+pre_window: workon isis
 windows:
-  - SERVER: ssh pablokl-isis2
-  - isis: workon isis
-  - tests: workon isis
+  - server:
+      layout: main-vertical
+      panes:
+        - ssh root@9.151.163.202
+  - repo: vim
+  - tests: ./runtests.sh
