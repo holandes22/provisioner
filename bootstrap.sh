@@ -8,7 +8,7 @@ TGT_SSH_DIR=$HOME/.ssh
 WORK=$2
 
 mkdir $TGT_SSH_DIR
-cp $SRC_SSH_DIR/* $TGT_SSH_DIR
+cp -r $SRC_SSH_DIR/* $TGT_SSH_DIR
 chmod 400 $TGT_SSH_DIR/*
 
 if [ -e "/etc/arch-release" ]; then
