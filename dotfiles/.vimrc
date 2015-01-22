@@ -39,6 +39,10 @@ set nocompatible " be iMproved
             Bundle 'mustache/vim-mustache-handlebars'
             Bundle 'groenewege/vim-less'
         " web end
+
+        " Formatting
+            Bundle 'chase/vim-ansible-yaml'
+        " Formatting end
     " Bundles end
 
     if iCanHazVundle == 0
