@@ -149,8 +149,10 @@ endif
 
     " CtrlP
     let g:ctrlp_map = '<Leader>p'
-    " let g:ctrlp_working_path_mode = 'c' " Set root to current dir, default is 'ra', looks for .git
-    let g:ctrlp_custom_ignore = '\v\.(pyc|swpi|so|exe)$'
+    let g:ctrlp_custom_ignore = {
+        \ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules|bower_components|frontend\/tmp|frontend\/dist)$',
+        \ 'file': '\v\.(exe|so|dll|pyc)$',
+        \ }
 
     " syntastic
     let g:syntastic_python_checkers = ['pep8', 'pylint']
