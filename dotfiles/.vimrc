@@ -172,6 +172,9 @@ endif
     " Handlebars
     let g:mustache_abbreviations = 1
 
+    " emmet-vim
+    let g:user_emmet_leader_key='<c-x>'
+
 " Vim Plugin Configs end
 
 
