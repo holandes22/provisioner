@@ -14,5 +14,6 @@ distro_packages:
     - vim
     - net-tools
     - vagrant
+    - gnome-tweak-tool
 user_packages:
     google-chrome: ''
