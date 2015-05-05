@@ -1,7 +1,7 @@
 # ~/.tmuxinator/isis.yml
 
-name: isis
-root: ~/projects/isis
+name: hdfs_plus
+root: ~/projects/hdfs_plus
 
 # Optional tmux socket
 # socket_name: foo
@@ -15,11 +15,9 @@ root: ~/projects/isis
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
 
-pre_window: workon isis
+pre_window: workon hdfs_plus
 windows:
   - server:
       layout: main-vertical
-      panes:
-        - ssh root@9.151.163.202
   - repo: vim
   - tests: ./runtests.sh
