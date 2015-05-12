@@ -3,6 +3,7 @@ distro_packages:
     - base-devel
     - git
     - nodejs
+    - npm
     - python2-pip
     - ruby
     - openssh
