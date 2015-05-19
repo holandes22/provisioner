@@ -98,7 +98,7 @@ endif
     " Removing trailing whitespaces.
     autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
     autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType html*,hbs,handlebars,jinja*,j2,js,javascript,css,less setlocal ts=2 sw=2 sts=2  "html, htmldjango, jinja
+    autocmd FileType html*,hbs,handlebars,jinja*,j2,js,javascript,css,less,json setlocal ts=2 sw=2 sts=2  "html, htmldjango, jinja
     " Mark trailing whitespace
     set list listchars=trail:_
     highlight SpecialKey ctermfg=DarkGray ctermbg=yellow

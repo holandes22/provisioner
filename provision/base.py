@@ -106,7 +106,7 @@ class Provisioner(object):
         gems = self.config.get('ruby_gems', [])
         logger.info('Installing gems {}'.format(gems))
         for gem in gems:
-            call(['gem', 'install', '--no-user-install', gem])
+            call(['gem', 'install', '--no-user-install', '--no-rdoc', '--no-ri', gem])
 
     def install_node_packages(self):
         packages = self.config.get('node_packages', [])

@@ -21,8 +21,13 @@ root: ~/projects/hdfs_plus
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
 # startup_window: logs
 
+pre_window: workon hdfs_plus
 windows:
   - editor:
       layout: main-vertical
       panes:
         - vim
+  - vagrant:
+      layout: main-vertical
+      panes:
+        - vagrant status

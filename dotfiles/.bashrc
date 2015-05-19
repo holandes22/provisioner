@@ -94,3 +94,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # =======
 
 alias ..='cd .. '
+
+# added by travis gem
+[ -f /home/pablo/.travis/travis.sh ] && source /home/pablo/.travis/travis.sh
