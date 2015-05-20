@@ -151,7 +151,7 @@ endif
     " CtrlP
     let g:ctrlp_map = '<Leader>p'
     let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules|bower_components|frontend\/tmp|frontend\/dist)$',
+        \ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules|bower_components|build|frontend\/tmp|frontend\/dist)$',
         \ 'file': '\v\.(exe|so|dll|pyc)$',
         \ }
 
