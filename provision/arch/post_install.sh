@@ -18,6 +18,7 @@ exit 1
 }
 
 UNMUTE_CMD="amixer sset Master unmute"
+EXTRA_PACKAGES=mesa xf86-input-synaptics xf86-video-intel
 
 while getopts "hm:" opt; do
   case $opt in
@@ -27,6 +28,11 @@ while getopts "hm:" opt; do
         echo "systemctl enable dhcpcd.service"
         echo "systemctl start dhcpcd.service"
         # UNMUTE_CMD="amixer -c1 sset Master unmute"
+      fi 
+      if [ "$OPTARG" = "desktop" ]; then
+        echo "systemctl enable dhcpcd.service"
+        echo "systemctl start dhcpcd.service"
+        EXTRA_PACKAGES=nvidia
       fi
       ;;
     h)
@@ -39,8 +45,11 @@ while getopts "hm:" opt; do
 done
 
 
-pacman -S gnome sudo xorg-server xorg-server-utils xorg-xinit mesa openssh wget alsa-utils ttf-dejavu file-roller xf86-input-synaptics xf86-video-intel
+pacman -S gnome sudo xorg-server xorg-server-utils xorg-xinit openssh wget alsa-utils ttf-dejavu file-roller $EXTRA_PACKAGES
+# For nvidia choose nvidia-libgl
+
 useradd -m -g users -G lp,wheel,network,video,audio,storage -s /bin/bash pablo
+passwd pablo
 $UNMUTE_CMD
 systemctl enable gdm.service
 systemctl enable NetworkManager.service
