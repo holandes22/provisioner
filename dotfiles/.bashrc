@@ -39,7 +39,7 @@ fi
 export EDITOR=vim
 export TERM=screen-256color
 
-DOTFILES_FOLDER=$HOME/provisioner/dotfiles
+DOTFILES_FOLDER=/home/pablo/provisioner/dotfiles
 COMPLETION_FOLDER=$DOTFILES_FOLDER/completion
 
 # Completion
@@ -79,13 +79,8 @@ fi
 # Dev General
 # ===========
 
-export PATH=$PATH:/opt/vagrant/bin:$HOME/xpyv/bin
+export PATH=$PATH:/opt/vagrant/bin
 PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
-
-# Dev work
-# =========
-XIVREPOS=$HOME/projects
-alias dev-xsf='export PYTHONPATH=$XIVREPOS/xsf:$XIVREPOS/xsf/deps/pyne;workon xsf'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
