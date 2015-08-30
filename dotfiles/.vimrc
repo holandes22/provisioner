@@ -19,7 +19,7 @@ set nocompatible " be iMproved
 
     " Bundles
         " General Vim
-            Bundle 'kien/ctrlp.vim'
+            Bundle 'ctrlpvim/ctrlp.vim'
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'scrooloose/nerdcommenter'
             Bundle 'scrooloose/syntastic'
