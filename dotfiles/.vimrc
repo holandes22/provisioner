@@ -35,6 +35,9 @@ set nocompatible " be iMproved
             Bundle 'hdima/python-syntax'
         " Python end
 
+        " Rust
+            Bundle 'rust-lang/rust.vim'
+
         " web
             Bundle 'mattn/emmet-vim'
             Bundle 'mustache/vim-mustache-handlebars'
